@@ -5,8 +5,13 @@ debug = 1
 
 import subprocess
 
-get_load = "snmpwalk -c public -v 2c localhost:161 .1.3.6.1.4.1.2021.10.1.3"
-get_temp = "/opt/vc/bin/vcgencmd measure_temp"
+load = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::laLoad"
+temperature = "/opt/vc/bin/vcgencmd measure_temp"
+mem_total_real = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::memTotalReal.0"
+mem_avail_real = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::memAvailReal.0"
+disk_total = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::dskTotal.1"
+disk_avail = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::dskUsed.1"
+
 
 get_load_ubuntu = "snmpwalk -c public -v 2c localhost:161 .1.3.6.1"
 
@@ -14,6 +19,8 @@ def command(command):
     temp = subprocess.Popen(command.split(" "), stdout=subprocess.PIPE)
     output = temp.communicate()[0]
     return output
+
+
 
 
 def main():
