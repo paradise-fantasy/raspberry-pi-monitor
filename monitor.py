@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-debug = 1
+debug = 0
 
 
 import subprocess
@@ -12,8 +12,10 @@ mem_avail_real = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::memAvailR
 disk_total = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::dskTotal.1"
 disk_avail = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::dskUsed.1"
 
+checks = [load, temperature, mem_total_real, mem_avail_real, disk_total, disk_avail]
 
-get_load_ubuntu = "snmpwalk -c public -v 2c localhost:161 .1.3.6.1"
+
+load_ubuntu = "snmpwalk -c public -v 2c localhost:161 .1.3.6.1"
 
 def command(command):
     temp = subprocess.Popen(command.split(" "), stdout=subprocess.PIPE)
@@ -25,10 +27,10 @@ def command(command):
 
 def main():
     if debug:
-        print(command(get_load_ubuntu))
+        print(command(load_ubuntu))
     else:
-        print command(get_load)
-        print command(get_temp)
+        for check in checks:
+            print command(check)
 
 if __name__ == "__main__":
     main()
