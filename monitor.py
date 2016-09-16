@@ -5,6 +5,9 @@ debug = 0
 
 import subprocess
 
+
+## The SNMP-MIB can be found at
+## http://www.net-snmp.org/docs/mibs/UCD-SNMP-MIB.txt
 load = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::laLoad"
 temperature = "/opt/vc/bin/vcgencmd measure_temp"
 mem_total_real = "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::memTotalReal.0"
