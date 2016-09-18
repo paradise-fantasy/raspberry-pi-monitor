@@ -5,7 +5,9 @@ http://www.net-snmp.org/docs/mibs/UCD-SNMP-MIB.txt
 
 #### Example output
 UCD-SNMP-MIB::laLoad.1 = STRING: 0.71 
+
 UCD-SNMP-MIB::laLoad.2 = STRING: 0.29 
+
 UCD-SNMP-MIB::laLoad.3 = STRING: 0.16 
  
 temp=48.7'C 
