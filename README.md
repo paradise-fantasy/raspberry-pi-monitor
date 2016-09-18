@@ -1,5 +1,7 @@
 # raspberry-pi-monitor
 
+#### The SNMP-MIB can be found at
+http://www.net-snmp.org/docs/mibs/UCD-SNMP-MIB.txt  
 
 #### Example output
 UCD-SNMP-MIB::laLoad.1 = STRING: 0.71 
