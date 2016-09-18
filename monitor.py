@@ -4,6 +4,9 @@ debug = 0
 
 
 import subprocess
+import time
+import request
+import json
 
 
 ## The SNMP-MIB can be found at
@@ -25,15 +28,31 @@ def command(command):
     output = temp.communicate()[0]
     return output
 
+def post_presence(vitals):
+    eventtype = "PERSON_ENTERED" if person.isPresent() else "PERSON_LEFT";
+    r = requests.post(url_post_presence, data={"type": eventtype, "subject":person.name})
+    # Should add some check if r.status_code is 200 and so on.
 
+def getLoad():
+
+def getTemp():
+    tempInString = temp[5:9]
+
+def get_vitals():
+    load = getLoad();
 
 
 def main():
     if debug:
         print(command(load_ubuntu))
     else:
-        for check in checks:
-            print command(check)
+        while True:
+
+            for check in checks:
+                print command(check)
+
+            vitals = get_vitals()
+            time.sleep(60)
 
 if __name__ == "__main__":
     main()
