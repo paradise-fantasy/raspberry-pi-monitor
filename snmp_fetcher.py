@@ -1,6 +1,7 @@
 import subprocess
 from output_processing import parseLoad, parseTemp, parseMemTotal, parseMemAvail, parseDiskTotal, parseDiskAvail
 
+load_avg_interval = 0; # Set to 0 for 1min avg, 1 for 5min avg and 2 for 15min avg
 debug = 0;
 
 ## The SNMP-MIB can be found at
@@ -26,7 +27,7 @@ def fetchData():
         data = { 'ubuntu': command(SNMP['ubuntu']) }
     else:
         data = {
-            'load': parseLoad(command(SNMP['load'])),
+            'load': parseLoad(command(SNMP['load']), load_avg_interval),
             'temperature': parseTemp(command(SNMP['temperature'])),
             'mem_total': parseMemTotal(command(SNMP['mem_total'])),
             'mem_avail': parseMemAvail(command(SNMP['mem_avail'])),
