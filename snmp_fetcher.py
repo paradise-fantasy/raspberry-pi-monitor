@@ -11,7 +11,7 @@ SNMP = {
     'mem_total': "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::memTotalReal.0",
     'mem_avail': "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::memAvailReal.0",
     'disk_total': "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::dskTotal.1",
-    'disk_avail': "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::dskUsed.1",
+    'disk_avail': "snmpwalk -c public -v 2c localhost:161 UCD-SNMP-MIB::dskAvail.1",
     'ubuntu': "snmpwalk -c public -v 2c localhost:161 .1.3.6.1"
 }
 
