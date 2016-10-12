@@ -27,4 +27,4 @@ def parseDiskTotal(diskString):
     return parseMemOrDisk(diskString, 'UCD-SNMP-MIB::dskTotal.1 = INTEGER: ');
 
 def parseDiskAvail(diskString):
-    return parseMemOrDisk(diskString, 'UCD-SNMP-MIB::dskUsed.1 = INTEGER: ');
+    return parseMemOrDisk(diskString, 'UCD-SNMP-MIB::dskAvail.1 = INTEGER: ');
